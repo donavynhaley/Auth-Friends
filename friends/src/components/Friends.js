@@ -24,7 +24,7 @@ const Friends = (props) => {
         console.log(res);
       })
       .catch((err) => console.log(err));
-  }, [freindsList]);
+  }, [setFriendsList]);
 
   // loading
   if (freindsList.length == 0) {

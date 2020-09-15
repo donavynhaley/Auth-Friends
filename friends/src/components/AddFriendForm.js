@@ -44,6 +44,7 @@ const AddFriendForm = (props) => {
           setErrors("");
           setPostSuccess(true);
           setFriendsList(res.data);
+          console.log(res);
         })
         .catch((err) => {
           setErrors(err.response.data.error);
@@ -57,11 +58,7 @@ const AddFriendForm = (props) => {
 
   return (
     <div className="form-wrapper">
-      <Button
-        color="danger"
-        onClick={(toggle, setPostSuccess(false))}
-        size="lg"
-      >
+      <Button color="danger" onClick={toggle} size="lg">
         Add Friend
       </Button>
       <Modal isOpen={modal} toggle={toggle}>
