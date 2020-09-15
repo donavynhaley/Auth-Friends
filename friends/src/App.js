@@ -10,26 +10,24 @@ import PrivateRoute from "./components/PrivateRoute";
 function App() {
   return (
     <div className="App">
-      <header>
-        <ul>
-          <li>
-            <Link to="/login">
-              <Button color="primary">Login</Button>
-            </Link>
-          </li>
-          <li>
-            <Link to="/friends">
-              <Button color="success">Friends</Button>
-            </Link>
-          </li>
-        </ul>
-      </header>
+      <nav className="navbar navbar-dark bg-dark">
+        <form className="form-inline">
+          <Link to="/login">
+            <button className="btn btn-outline-success" type="button">
+              Login
+            </button>
+          </Link>
+          <Link to="/friends">
+            <button className="btn btn-outline-success" type="button">
+              Friends
+            </button>
+          </Link>
+        </form>
+      </nav>
       <div className="content">
         <img src={logo} height="500px" width="500px" />
-        <h2>Please login to see your Friends</h2>
         <Switch>
           <PrivateRoute exact path="/friends" component={Friends} />
-
           <Route path="/login" component={LoginForm} />
           <Route component={LoginForm} />
         </Switch>

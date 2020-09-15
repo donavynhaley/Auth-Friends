@@ -3,12 +3,14 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const LoginForm = (props) => {
+  // Setting state
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
   const [errors, setErrors] = useState("");
 
+  // setting credentials
   const handleChange = (e) => {
     setCredentials({
       ...credentials,
@@ -16,6 +18,7 @@ const LoginForm = (props) => {
     });
   };
 
+  // on submit runs and makes post request
   const login = (e) => {
     e.preventDefault();
     axiosWithAuth()
@@ -33,6 +36,8 @@ const LoginForm = (props) => {
   };
   return (
     <div className="form-wrapper">
+      <h2>Please login to see your Friends</h2>
+
       <Form onSubmit={login}>
         <FormGroup>
           <Label for="username" hidden>
@@ -58,7 +63,7 @@ const LoginForm = (props) => {
             onChange={(e) => handleChange(e)}
           />
         </FormGroup>
-        <Button>Login</Button>
+        <Button color="primary">Login</Button>
       </Form>
       {errors != "" ? <p>{errors}</p> : null}
     </div>

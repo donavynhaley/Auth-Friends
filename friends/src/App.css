@@ -12,27 +12,11 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
-header {
-  background-color: #333333;
-  border-bottom-left-radius: 1rem;
-  border-bottom-right-radius: 1rem;
-}
-header a {
-  color: white;
-}
-ul {
+.friends {
   display: flex;
-  justify-content: flex-end;
+  flex-flow: row wrap;
 }
-ul li {
-  margin: 10px;
-}
-.card {
-  color: dodgerblue;
-}
-.card header {
-  background-color: rgba(0, 0, 0, 0.1);
-}
+/*Changes error text in form*/
 .form-wrapper p {
   color: red;
   font-size: 1rem;

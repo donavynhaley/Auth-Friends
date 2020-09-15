@@ -1,0 +1,24 @@
+/*Adjust navbar buttons placement */
+.navbar {
+  justify-content: flex-end;
+}
+.navbar a {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+/*Makes card header darker*/
+.card-header {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+/*Added spacing and width for list of friends*/
+.card {
+  margin: 2%;
+  max-width: 25%;
+}
+
+/*Custom Modal colors*/
+.modal-content {
+  background-color: #343a40;
+  color: white;
+}
