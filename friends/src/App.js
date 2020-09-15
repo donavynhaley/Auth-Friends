@@ -5,6 +5,8 @@ import LoginForm from "./components/LoginForm";
 import { Route, Link, Switch } from "react-router-dom";
 import { Button } from "reactstrap";
 import Friends from "./components/Friends";
+import PrivateRoute from "./components/PrivateRoute";
+
 function App() {
   return (
     <div className="App">
@@ -26,8 +28,10 @@ function App() {
         <img src={logo} height="500px" width="500px" />
         <h2>Please login to see your Friends</h2>
         <Switch>
+          <PrivateRoute exact path="/friends" component={Friends} />
+
           <Route path="/login" component={LoginForm} />
-          <Route path="/friends" component={Friends} />
+          <Route component={LoginForm} />
         </Switch>
       </div>
     </div>
