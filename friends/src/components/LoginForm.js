@@ -26,9 +26,10 @@ const LoginForm = (props) => {
       .then((res) => {
         // Set token in local storage
         localStorage.setItem("token", res.data.payload);
-        // Navigate to frinds component
-        props.history.push("/friends");
+
         setErrors("");
+        // Navigate to friends component
+        props.history.push("/friends");
       })
       .catch((err) => {
         setErrors(err.response.data.error);

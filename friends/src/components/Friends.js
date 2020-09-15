@@ -4,12 +4,14 @@ import {
   Button,
   CardHeader,
   CardBody,
-  CardTitle,
   CardText,
   Spinner,
 } from "reactstrap";
+
+// Components
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import AddFriendForm from "./AddFriendForm";
+
 const Friends = (props) => {
   //set state
   const [freindsList, setFriendsList] = useState([]);
@@ -22,7 +24,7 @@ const Friends = (props) => {
         console.log(res);
       })
       .catch((err) => console.log(err));
-  }, [setFriendsList]);
+  }, [freindsList]);
 
   // loading
   if (freindsList.length == 0) {
@@ -30,10 +32,7 @@ const Friends = (props) => {
   }
   return (
     <div className="friends-container">
-      <AddFriendForm
-        freindsList={freindsList}
-        setFriendsList={setFriendsList}
-      />
+      <AddFriendForm setFriendsList={setFriendsList} />
       <div className="friends">
         {freindsList.map((friend) => {
           return (

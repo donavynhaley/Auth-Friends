@@ -12,9 +12,8 @@ import {
   Alert,
 } from "reactstrap";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-
 const AddFriendForm = (props) => {
-  const { freindsList, setFriendsList } = props;
+  const { setFriendsList } = props;
   // Setting state
   const [newFriend, setNewFriend] = useState({
     id: 1,
@@ -36,20 +35,21 @@ const AddFriendForm = (props) => {
   // on submit runs and makes post request
   const login = (e) => {
     e.preventDefault();
-    axiosWithAuth()
-      .post("/api/friends", newFriend)
-      .then((res) => {
-        // Set token in local storage
-        localStorage.setItem("token", res.data.payload);
-        setErrors("");
-        setPostSuccess(true);
-        setFriendsList(res.data);
-      })
-      .catch((err) => {
-        setErrors(err.response.data.error);
-      });
-  };
+    axiosCall();
 
+    function axiosCall() {
+      axiosWithAuth()
+        .post("/api/friends", newFriend)
+        .then((res) => {
+          setErrors("");
+          setPostSuccess(true);
+          setFriendsList(res.data);
+        })
+        .catch((err) => {
+          setErrors(err.response.data.error);
+        });
+    }
+  };
   // Modal Logic
   const toggle = () => setModal(!modal);
 
